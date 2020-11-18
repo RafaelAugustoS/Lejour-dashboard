@@ -7,20 +7,20 @@ export default {
       datasets: [
         {
           label: "Praia",
-          backgroundColor: "transparent",
           borderColor: "#84B8E2",
+          fill: false,
           data: [5, 2, 10, 12, 7],
         },
         {
           label: "Campo",
-          backgroundColor: "transparent",
           borderColor: "#E2645A",
+          fill: false,
           data: [1, 0, 6, 10, 3],
         },
         {
           label: "Cidade",
-          backgroundColor: "transparent",
           borderColor: "#68BFB7",
+          fill: false,
           data: [2, 8, 20, 12, 8],
         },
       ],

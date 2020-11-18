@@ -19,6 +19,12 @@ export default {
 </script>
 
 <style lang="scss">
+*,
+*::before,
+*::after {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
 #app {
   font-family: "Merriweather", serif;
   -webkit-font-smoothing: antialiased;
