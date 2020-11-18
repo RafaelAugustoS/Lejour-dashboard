@@ -2,7 +2,7 @@
 
 ## Projeto desenvolvido para o Challenge do 2º Semestre do curso de análise e desenvolvimento de sistemas da FIAP.
 
-![](https://github.com/gabrielcaiana/Lejour-dashboard/blob/master/public/Preview.PNG)
+![](https://github.com/rafaelaugustos/Lejour-dashboard/blob/master/public/Preview.PNG)
 
 ## Project setup
 
