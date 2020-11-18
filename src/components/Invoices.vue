@@ -2,6 +2,7 @@
 import { Line } from 'vue-chartjs'
 import { mapGetters } from 'vuex'
 import { isMonday, parseISO, getYear, getMonth, format } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
 export default {
 	data: () => ({
@@ -24,7 +25,9 @@ export default {
 				if (this.state === 'ano') {
 					arr.push(item.key)
 				} else {
-					arr.push(format(new Date(this.year, item.key, '01'), 'MMM'))
+					arr.push(
+						format(new Date(this.year, item.key, '01'), 'MMM', { locale: ptBR })
+					)
 				}
 			})
 
