@@ -14,23 +14,39 @@
 
             <div class="dashboard__card__info__filter">
               <button
-                class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--user dashboard__card__info__filter__buttons--user--active"
+                class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--user"
+                :class="{
+                  'dashboard__card__info__filter__buttons--user--active':
+                    usuarios === 'semana',
+                }"
               >
                 Semana
               </button>
               <button
                 class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--user"
+                :class="{
+                  'dashboard__card__info__filter__buttons--user--active':
+                    usuarios === 'mes',
+                }"
               >
                 Mês
               </button>
               <button
                 class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--user"
+                :class="{
+                  'dashboard__card__info__filter__buttons--user--active':
+                    usuarios === 'ano',
+                }"
               >
                 Ano
               </button>
             </div>
           </div>
-          <Users />
+
+          <div class="chart">
+            <Users v-if="countUsers" />
+            <img src="@/assets/gif.gif" v-else />
+          </div>
         </div>
       </div>
 
@@ -40,28 +56,43 @@
             <h2
               class="dashboard__card__info__title dashboard__card__info__title--invoices"
             >
-              Invoices
+              Invoices Gerados x Efetivados
             </h2>
 
             <div class="dashboard__card__info__filter">
               <button
-                class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--invoices dashboard__card__info__filter__buttons--invoices--active"
+                class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--invoices"
+                :class="{
+                  'dashboard__card__info__filter__buttons--invoices--active':
+                    invoices === 'semana',
+                }"
               >
                 Semana
               </button>
               <button
                 class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--invoices"
+                :class="{
+                  'dashboard__card__info__filter__buttons--invoices--active':
+                    invoices === 'mes',
+                }"
               >
                 Mês
               </button>
               <button
                 class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--invoices"
+                :class="{
+                  'dashboard__card__info__filter__buttons--invoices--active':
+                    invoices === 'ano',
+                }"
               >
                 Ano
               </button>
             </div>
           </div>
-          <Invoices />
+          <div class="chart">
+            <Invoices v-if="countInvoices" />
+            <img src="@/assets/gif.gif" v-else />
+          </div>
         </div>
       </div>
 
@@ -76,23 +107,38 @@
 
             <div class="dashboard__card__info__filter">
               <button
-                class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--casamentos dashboard__card__info__filter__buttons--casamentos--active"
+                class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--casamentos"
+                :class="{
+                  'dashboard__card__info__filter__buttons--casamentos--active':
+                    casamentos === 'semana',
+                }"
               >
                 Semana
               </button>
               <button
                 class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--casamentos"
+                :class="{
+                  'dashboard__card__info__filter__buttons--casamentos--active':
+                    casamentos === 'mes',
+                }"
               >
                 Mês
               </button>
               <button
                 class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--casamentos"
+                :class="{
+                  'dashboard__card__info__filter__buttons--casamentos--active':
+                    casamentos === 'ano',
+                }"
               >
                 Ano
               </button>
             </div>
           </div>
-          <Casamentos />
+          <div class="chart">
+            <Casamentos v-if="countCasamentos" />
+            <img src="@/assets/gif.gif" v-else />
+          </div>
         </div>
       </div>
 
@@ -102,28 +148,44 @@
             <h2
               class="dashboard__card__info__title dashboard__card__info__title--agendamentos"
             >
-              Agendamento
+              Agendamentos
             </h2>
 
             <div class="dashboard__card__info__filter">
               <button
-                class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--agendamentos dashboard__card__info__filter__buttons--agendamentos--active"
+                class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--agendamentos"
+                :class="{
+                  'dashboard__card__info__filter__buttons--agendamentos--active':
+                    agendamentos === 'semana',
+                }"
               >
                 Semana
               </button>
               <button
                 class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--agendamentos"
+                :class="{
+                  'dashboard__card__info__filter__buttons--agendamentos--active':
+                    agendamentos === 'mes',
+                }"
               >
                 Mês
               </button>
               <button
                 class="dashboard__card__info__filter__buttons dashboard__card__info__filter__buttons--agendamentos"
+                :class="{
+                  'dashboard__card__info__filter__buttons--agendamentos--active':
+                    agendamentos === 'ano',
+                }"
               >
                 Ano
               </button>
+
+              <input type="date" />
             </div>
           </div>
-          <Agendamento />
+          <div class="chart">
+            <Agendamento />
+          </div>
         </div>
       </div>
     </div>
@@ -135,14 +197,41 @@ import Users from "@/components/Users";
 import Invoices from "@/components/Invoices";
 import Casamentos from "@/components/Casamentos";
 import Agendamento from "@/components/Agendamento";
+import { mapGetters } from "vuex";
+
 export default {
+  data: () => ({
+    usuarios: "ano",
+    invoices: "ano",
+    casamentos: "ano",
+    agendamentos: "semana",
+  }),
   components: { Users, Invoices, Casamentos, Agendamento },
+  computed: {
+    ...mapGetters({
+      users: "users",
+      allInvoices: "invoices",
+      allCasamentos: "casamentos",
+    }),
+    countUsers() {
+      return this.users.length > 0;
+    },
+    countInvoices() {
+      return this.allInvoices.length > 0;
+    },
+    countCasamentos() {
+      return this.allCasamentos.length > 0;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .dashboard {
   padding: 32px 60px;
+  margin-top: 55px;
+  width: calc(100% - 280px);
+  margin-left: 280px;
 
   .list {
     display: flex;
@@ -156,6 +245,7 @@ export default {
   }
   &__card {
     width: 48%;
+    height: 450px;
     display: flex;
     background: #ffffff;
     box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.1), 0px 4px 17px rgba(0, 0, 0, 0.09);
@@ -185,6 +275,8 @@ export default {
         margin-top: 10px;
         &__buttons {
           border-radius: 34px;
+          outline: none;
+          cursor: pointer;
           border: 1px solid #ccc;
           height: 25px;
           padding-left: 10px;
@@ -245,6 +337,15 @@ export default {
     }
     &__chart {
       width: 100%;
+    }
+    .chart {
+      padding: 0 40px 0 40px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      img {
+        width: 60%;
+      }
     }
   }
 }

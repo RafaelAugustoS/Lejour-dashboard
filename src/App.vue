@@ -25,6 +25,14 @@ export default {
   margin: 0 auto;
   box-sizing: border-box;
 }
+
+.chart > div {
+  width: 100%;
+}
+.chartjs-render-monitor {
+  height: 310px !important;
+  width: 100% !important;
+}
 #app {
   font-family: "Merriweather", serif;
   -webkit-font-smoothing: antialiased;
@@ -33,10 +41,11 @@ export default {
 }
 
 .container {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 260px auto;
   grid-template-rows: auto;
   width: 100%;
-  height: calc(100vh - 55px);
+  height: calc(100vh - 55px); */
+  display: flex;
 }
 </style>

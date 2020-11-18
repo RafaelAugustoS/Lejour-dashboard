@@ -8,16 +8,16 @@
         alt="Foto do usuário"
       />
     </div>
-     <nav class="sidebar__nav">
-       <ul class="sidebar__nav__list">
+    <nav class="sidebar__nav">
+      <ul class="sidebar__nav__list">
         <li class="sidebar__nav__list__item active">Ínicio</li>
         <li class="sidebar__nav__list__item">Agendamentos</li>
         <li class="sidebar__nav__list__item">Busca de fornecedores</li>
         <li class="sidebar__nav__list__item">Estimativa do casamento</li>
         <li class="sidebar__nav__list__item">Fornecedores salvos</li>
         <li class="sidebar__nav__list__item">Inspirações</li>
-       </ul>
-      </nav>
+      </ul>
+    </nav>
   </sidebar>
 </template>
 
@@ -29,13 +29,17 @@ export default {};
 .sidebar {
   background: linear-gradient(269.41deg, #db5d79 0.41%, #e2645a 99.41%);
   font-family: Lato, serif;
+  width: 280px;
+  margin-top: 55px;
+  position: fixed;
+  height: calc(100% - 55px);
 
   &__user {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 24px 0;
-    border-bottom: 1px solid #E0E0E0;
+    border-bottom: 1px solid #e0e0e0;
 
     &__name {
       color: white;
@@ -51,22 +55,22 @@ export default {};
   }
 
   &__nav {
-   width: 100%;
+    width: 100%;
 
-   &__list {
-    list-style: none;
-    color: rgb(238, 236, 236);
+    &__list {
+      list-style: none;
+      color: rgb(238, 236, 236);
 
-    &__item {
-     padding: 8px 0;
-     cursor: pointer;
+      &__item {
+        padding: 8px 0;
+        cursor: pointer;
+      }
+
+      .active {
+        color: white;
+        font-weight: bold;
+      }
     }
-
-    .active {
-     color: white;
-     font-weight: bold;
-    }
-   }
   }
 }
 </style>

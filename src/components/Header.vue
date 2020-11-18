@@ -16,6 +16,9 @@ export default {};
   height: 55px;
   padding: 0 30px;
   display: flex;
+  position: fixed;
+  width: 100%;
+  margin-bottom: 55px;
   align-items: center;
 }
 </style>
