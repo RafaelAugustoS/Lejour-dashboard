@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header-my">
     <img src="../assets/logo.png" alt="Logo Lejour" />
   </header>
 </template>
@@ -9,7 +9,8 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.header {
+.header-my {
+  z-index: 9;
   background: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0820859),
     0px 2px 32px rgba(0, 0, 0, 0.0575557);

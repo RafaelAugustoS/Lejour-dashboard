@@ -1,51 +1,43 @@
 <template>
-  <div id="app">
-    <Header />
-    <div class="container">
-      <Sidebar />
-      <Dashboard />
-    </div>
-  </div>
+	<v-app>
+		<Header />
+		<Sidebar />
+		<v-main>
+			<Dashboard />
+		</v-main>
+	</v-app>
 </template>
 
 <script>
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
-import Dashboard from "./components/Dashboard";
+import Dashboard from './components/Dashboard'
+import Header from './components/Header'
+import Sidebar from './components/Sidebar'
+
 export default {
-  name: "App",
-  components: { Header, Sidebar, Dashboard },
-};
+	name: 'App',
+
+	components: {
+		Dashboard,
+		Header,
+		Sidebar,
+	},
+
+	data: () => ({
+		//
+	}),
+}
 </script>
 
 <style lang="scss">
-*,
-*::before,
-*::after {
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
 .chart > div {
-  width: 100%;
+	width: 100%;
+}
+.v-text-field {
+	margin-top: 0;
+	padding-top: 0;
 }
 .chartjs-render-monitor {
-  height: 310px !important;
-  width: 100% !important;
-}
-#app {
-  font-family: "Merriweather", serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-}
-
-.container {
-  /* display: grid;
-  grid-template-columns: 260px auto;
-  grid-template-rows: auto;
-  width: 100%;
-  height: calc(100vh - 55px); */
-  display: flex;
+	height: 310px !important;
+	width: 100% !important;
 }
 </style>

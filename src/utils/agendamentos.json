@@ -1,0 +1,10 @@
+[
+	{
+		"ID": 1,
+		"OWNER_ID": 1,
+		"BUDGET": 2000,
+		"WEDDING_DATE": "2020-11-31",
+		"NUMBER_OF_GUESTS": 50,
+		"STYLE": "rustico"
+	}
+]
