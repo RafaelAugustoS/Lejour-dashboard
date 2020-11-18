@@ -14,7 +14,7 @@ import Sidebar from "./components/Sidebar";
 import Dashboard from "./components/Dashboard";
 export default {
   name: "App",
-  components: { Header, Sidebar, Dashboard},
+  components: { Header, Sidebar, Dashboard },
 };
 </script>
 
